@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dti"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-06-09 02:29:32 "/>
+        <attribute name="created" value="ZHRpO0xBQjIwMi0xNTsyMDIyLTA2LTA5OyIwMTo1Njo0OSAiOzIwMjQ="/>
+        <attribute name="edited" value="ZHRpO0xBQjIwMi0xNTsyMDIyLTA2LTA5OyIwMTo1NzoxMiAiOzE7dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjEwOjA3OjU1ICI7RXhlcmPDrWNpbyAxMC5mcHJnOzY2OTU="/>
+        <attribute name="edited" value="ZHRpO0xBQjIwMi0xNTsyMDIyLTA2LTA5OyIwMjoyOTozMiAiOzI7MjEyNg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nota1, nota2, nota3, nota4, media" type="Integer" array="False" size=""/>
+            <declare name="aluno" type="Integer" array="False" size=""/>
+            <declare name="nomealuno" type="String" array="False" size=""/>
+            <assign variable="aluno" expression="1"/>
+            <for variable="aluno" start="1" end="7" direction="inc" step="1">
+                <output expression="&quot;Informe o nome do aluno&quot;" newline="True"/>
+                <input variable="nomealuno"/>
+                <output expression="&quot;Informe a primeira nota:&quot;" newline="True"/>
+                <input variable="nota1"/>
+                <output expression="&quot;Informe a segunda nota:&quot;" newline="True"/>
+                <input variable="nota2"/>
+                <output expression="&quot;Informe a terceira nota:&quot;" newline="True"/>
+                <input variable="nota3"/>
+                <output expression="&quot;Informe a quarta nota:&quot;" newline="True"/>
+                <input variable="nota4"/>
+                <assign variable="media" expression="(nota1+nota2+nota3+nota4)/4"/>
+                <output expression="&quot;Sua m&#233;dia anual foi de:&quot; &amp;media" newline="True"/>
+                <output expression="&quot;O nome do aluno &#233; &quot; &amp;nomealuno" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

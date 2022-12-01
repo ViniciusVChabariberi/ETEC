@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="valer"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-23 11:49:13 "/>
+        <attribute name="created" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjExOjM5OjM4ICI7MjgwMA=="/>
+        <attribute name="edited" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjExOjQ5OjEzICI7MTsyOTAy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="saldo" type="Integer" array="False" size=""/>
+            <assign variable="saldo" expression="500*0.03"/>
+            <assign variable="saldo" expression="saldo+500"/>
+            <output expression="&quot;Seu saldo ap&#243;s 3 meses &#233; de:&quot; &amp;saldo" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="valer"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-23 10:22:08 "/>
+        <attribute name="created" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjEwOjE3OjE3ICI7Mjc5Mg=="/>
+        <attribute name="edited" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjEwOjIyOjA4ICI7MTsyODk2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="cm, mm, dm, m" type="Real" array="False" size=""/>
+            <output expression="&quot;Informe a quantidade de cent&#237;metros da medida:&quot;" newline="True"/>
+            <input variable="cm"/>
+            <assign variable="mm" expression="cm*10"/>
+            <assign variable="dm" expression="cm/10"/>
+            <assign variable="m" expression="cm*100"/>
+            <output expression="&quot;A quantidade em mil&#237;metros &#233;:&quot; &amp;mm" newline="True"/>
+            <output expression="&quot;A quantidade em dec&#237;metros &#233;:&quot; &amp;dm" newline="True"/>
+            <output expression="&quot;A quantidade em metros &#233;:&quot; &amp;m" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

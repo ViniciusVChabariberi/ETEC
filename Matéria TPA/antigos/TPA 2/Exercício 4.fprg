@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="FATEC ZONA LESTE"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-25 02:21:13 "/>
+        <attribute name="created" value="RkFURUMgWk9OQSBMRVNURTtMQUIxMDMtMDQ7MjAyMi0wNS0yNTsiMDI6MTc6MDkgIjsyODA0"/>
+        <attribute name="edited" value="RkFURUMgWk9OQSBMRVNURTtMQUIxMDMtMDQ7MjAyMi0wNS0yNTsiMDI6MjE6MTMgIjsxOzI5MDI="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="anon, anoa, maioridade, idade" type="Real" array="False" size=""/>
+            <output expression="&quot;Programa para saber se voc&#234; j&#225; atingiu a maioridade&quot;" newline="True"/>
+            <output expression="&quot;Digite seu ano de nascimento:&quot;" newline="True"/>
+            <input variable="anon"/>
+            <output expression="&quot;Digite o ano atual:&quot;" newline="True"/>
+            <input variable="anoa"/>
+            <assign variable="idade" expression="anoa-anon"/>
+            <if expression="idade &gt;= 18">
+                <then>
+                    <output expression="&quot;Voc&#234; atingiu a maioridade!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Voc&#234; ainda n&#227;o atingiu a maioridade!&quot;" newline="True"/>
+                </else>
+            </if>
+            <output expression="&quot;Sua idade &#233;:&quot; &amp;idade" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

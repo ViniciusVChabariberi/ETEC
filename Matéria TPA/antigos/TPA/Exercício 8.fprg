@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="valer"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-23 10:05:00 "/>
+        <attribute name="created" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjA5OjU1OjQyICI7MjgwMA=="/>
+        <attribute name="edited" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjEwOjA1OjAwICI7MTsyODg5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="X, N, result" type="Integer" array="False" size=""/>
+            <output expression="&quot;Insira o valor de X:&quot;" newline="True"/>
+            <input variable="X"/>
+            <output expression="&quot;Insira o valor de N:&quot;" newline="True"/>
+            <input variable="N"/>
+            <assign variable="result" expression="(X*N)^2"/>
+            <output expression="&quot;O resultado &#233;:&quot; &amp;result" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

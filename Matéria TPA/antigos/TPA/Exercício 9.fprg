@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="valer"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-23 10:07:32 "/>
+        <attribute name="created" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjEwOjA1OjA0ICI7Mjc4NQ=="/>
+        <attribute name="edited" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjM7IjEwOjA3OjMyICI7MTsyODk2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="area, altura, base" type="Integer" array="False" size=""/>
+            <output expression="&quot;Informe a altura:&quot;" newline="True"/>
+            <input variable="altura"/>
+            <output expression="&quot;Informe a base:&quot;" newline="True"/>
+            <input variable="base"/>
+            <assign variable="area" expression="(base*altura)/2"/>
+            <output expression="&quot;A &#225;rea do tri&#226;ngulo &#233; de:&quot; &amp;area" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

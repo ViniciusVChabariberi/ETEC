@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dti"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-06-08 03:27:18 "/>
+        <attribute name="created" value="ZHRpO0xBQjEwNC0wOTsyMDIyLTA2LTA4OyIwMzoyMTo1OSAiOzIwMjI="/>
+        <attribute name="edited" value="ZHRpO0xBQjEwNC0wOTsyMDIyLTA2LTA4OyIwMzoyMjozOSAiOzE7ZHRpO0xBQjEwNC0wOTsyMDIyLTA2LTA4OyIwMzoxMDoxNSAiO0V4ZXJjw61jaW8gNC5mcHJnOzU4NzU="/>
+        <attribute name="edited" value="ZHRpO0xBQjEwNC0wOTsyMDIyLTA2LTA4OyIwMzoyNzoxOCAiOzE7MjEzMQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Idade" type="Integer" array="False" size=""/>
+            <declare name="Resp, Nome" type="String" array="False" size=""/>
+            <do expression="Resp = &quot;Sim&quot;">
+                <output expression="&quot;Informe o nome: &quot;" newline="True"/>
+                <input variable="Nome"/>
+                <output expression="&quot;Informe a idade: &quot;" newline="True"/>
+                <input variable="Idade"/>
+                <output expression="Nome &amp; &quot; tem&quot; &amp;Idade&amp; &quot; anos&quot;" newline="True"/>
+                <output expression="&quot;Deseja continuar: Sim ou N&#227;o?&quot;" newline="True"/>
+                <input variable="Resp"/>
+            </do>
+        </body>
+    </function>
+</flowgorithm>

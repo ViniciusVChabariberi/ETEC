@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="valer"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-28 08:54:13 "/>
+        <attribute name="created" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjg7IjA3OjIxOjMyICI7Mjc5NQ=="/>
+        <attribute name="edited" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjg7IjA4OjU0OjEzICI7MTsyOTA5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="ano1, mes1, dia1, data1, ano2, mes2, dia2, data2, comparacao" type="Integer" array="False" size=""/>
+            <assign variable="dia1" expression="0"/>
+            <while expression="dia1 &lt; 1 OR dia1 &gt; 31">
+                <output expression="&quot;informe o dia1, contendo 2 d&#237;gitos. Ex: 31&quot;" newline="True"/>
+                <input variable="dia1"/>
+            </while>
+            <assign variable="mes1" expression="0"/>
+            <while expression="mes1 &lt; 1 OR mes1 &gt; 12">
+                <output expression="&quot;Informe o mes1, contendo 2 d&#237;gitos. Ex: 04&quot;" newline="True"/>
+                <input variable="mes1"/>
+            </while>
+            <assign variable="ano1" expression="0"/>
+            <while expression="ano1 &lt; 1">
+                <output expression="&quot;Informe o ano1, contendo 4 d&#237;gitos. Ex: 2022&quot;" newline="True"/>
+                <input variable="ano1"/>
+            </while>
+            <assign variable="data1" expression="ToInteger(ano1&amp;mes1&amp;dia1)"/>
+            <assign variable="dia2" expression="0"/>
+            <while expression="dia2 &lt; 1 OR dia2 &gt; 31">
+                <output expression="&quot;informe o dia2, contendo 2 d&#237;gitos. Ex: 31&quot;" newline="True"/>
+                <input variable="dia2"/>
+            </while>
+            <assign variable="mes2" expression="0"/>
+            <while expression="mes2 &lt; 1 OR mes2 &gt; 12">
+                <output expression="&quot;Informe o mes2, contendo 2 d&#237;gitos. Ex: 04&quot;" newline="True"/>
+                <input variable="mes2"/>
+            </while>
+            <assign variable="ano2" expression="0"/>
+            <while expression="ano2 &lt; 1">
+                <output expression="&quot;Informe o ano2, contendo 4 d&#237;gitos. Ex: 2022&quot;" newline="True"/>
+                <input variable="ano2"/>
+            </while>
+            <assign variable="data2" expression="ToInteger(ano2&amp;mes2&amp;dia2)"/>
+            <output expression="&quot;data1 &#233;: &quot; &amp;data1" newline="True"/>
+            <output expression="&quot;data2 &#233;: &quot; &amp;data2" newline="True"/>
+            <if expression="data1 &gt; data2">
+                <then>
+                    <output expression="&quot;data 1 &#233; maior que data 2&quot;" newline="True"/>
+                    <output expression="&quot;1.&quot; &amp;data2" newline="True"/>
+                    <output expression="&quot;2.&quot; &amp;data1" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;data 2 &#233; maior que data 1&quot;" newline="True"/>
+                    <output expression="&quot;1.&quot; &amp;data1" newline="True"/>
+                    <output expression="&quot;2.&quot; &amp;data2" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

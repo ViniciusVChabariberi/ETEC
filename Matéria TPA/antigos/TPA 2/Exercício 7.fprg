@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="FATEC ZONA LESTE"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-25 02:48:17 "/>
+        <attribute name="created" value="RkFURUMgWk9OQSBMRVNURTtMQUIxMDMtMDQ7MjAyMi0wNS0yNTsiMDI6NDI6MDAgIjsyNzkz"/>
+        <attribute name="edited" value="RkFURUMgWk9OQSBMRVNURTtMQUIxMDMtMDQ7MjAyMi0wNS0yNTsiMDI6NDg6MTcgIjsxOzI5MTU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="EscolhaLanche" type="Integer" array="False" size=""/>
+            <output expression="&quot;Bem-vindo ao MacDonalds! Nossas op&#231;&#245;es no card&#225;pio s&#227;o: &quot;" newline="True"/>
+            <output expression="&quot;1 = BigMac&quot;" newline="True"/>
+            <output expression="&quot;2 = Quarteir&#227;o&quot;" newline="True"/>
+            <output expression="&quot;3 = MacChicken&quot;" newline="True"/>
+            <output expression="&quot;4 = Cheddar MacMelt&quot;" newline="True"/>
+            <output expression="&quot;5 = MacMax&quot;" newline="True"/>
+            <output expression="&quot;Por favor, informe o n&#250;mero do seu pedido:&quot;" newline="True"/>
+            <input variable="EscolhaLanche"/>
+            <if expression="EscolhaLanche=1">
+                <then>
+                    <output expression="&quot;Escolha confirmada: BigMac.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="EscolhaLanche=2">
+                        <then>
+                            <output expression="&quot;Escolha confirmada: Quarteir&#227;o.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="EscolhaLanche=3">
+                                <then>
+                                    <output expression="&quot;Escolha confirmada: MacChicken&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="EscolhaLanche=4">
+                                        <then>
+                                            <output expression="&quot;Escolha confirmada: Cheddar MacMelt&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="EscolhaLanche=5">
+                                                <then>
+                                                    <output expression="&quot;Escolha confirmada: MacMax&quot;" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;N&#227;o h&#225; uma op&#231;&#227;o dispon&#237;vel para o n&#250;mero digitado.&quot;" newline="True"/>
+                                                    <output expression="&quot;Por favor, tente novamente.&quot;" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

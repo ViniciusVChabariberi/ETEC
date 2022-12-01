@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="valer"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-24 08:29:07 "/>
+        <attribute name="created" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjQ7IjA4OjE4OjIxICI7Mjc5Ng=="/>
+        <attribute name="edited" value="dmFsZXI7REVTS1RPUC1MNlZET0YyOzIwMjItMDUtMjQ7IjA4OjI5OjA3ICI7MTsyOTEw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Sal&#225;rioL, Sal&#225;rioB, ValorH, HoraTrabalho" type="Real" array="False" size=""/>
+            <declare name="QuantidadeD, BonusD" type="Integer" array="False" size=""/>
+            <output expression="&quot;Informe o valor por hora trabalhada:&quot;" newline="True"/>
+            <input variable="ValorH"/>
+            <output expression="&quot;Informe a quantidade de horas trabalhadas:&quot;" newline="True"/>
+            <input variable="HoraTrabalho"/>
+            <output expression="&quot;Informe a quantidade de dependentes:&quot;" newline="True"/>
+            <input variable="QuantidadeD"/>
+            <assign variable="BonusD" expression="300"/>
+            <assign variable="Sal&#225;rioB" expression="ValorH*HoraTrabalho"/>
+            <assign variable="Sal&#225;rioL" expression="Sal&#225;rioB + BonusD"/>
+            <assign variable="BonusD" expression="QuantidadeD*300"/>
+            <output expression="&quot;O valor do seu sal&#225;rio bruto &#233; de:&quot; &amp;Sal&#225;rioB" newline="True"/>
+            <output expression="&quot;O valor do seu sal&#225;rio l&#237;quido &#233; de:&quot; &amp;Sal&#225;rioL" newline="True"/>
+            <output expression="&quot;O valor do seu bonus de dependente &#233; de:&quot; &amp;BonusD" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

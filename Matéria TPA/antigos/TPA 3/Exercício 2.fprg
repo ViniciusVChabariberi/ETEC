@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dti"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-06-09 01:55:41 "/>
+        <attribute name="created" value="ZHRpO0xBQjIwMi0xNTsyMDIyLTA2LTA5OyIwMTo0NDo0NSAiOzIwMTc="/>
+        <attribute name="edited" value="ZHRpO0xBQjIwMi0xNTsyMDIyLTA2LTA5OyIwMTo1NTo0MSAiOzI7MjEyNA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="base, alt, area" type="Real" array="False" size=""/>
+            <declare name="result" type="Integer" array="False" size=""/>
+            <for variable="result" start="1" end="10" direction="inc" step="1">
+                <output expression="&quot;Digite a altura do seu ret&#226;ngulo&quot;" newline="True"/>
+                <input variable="alt"/>
+                <output expression="&quot;Digite o comprimento do seu ret&#226;ngulo&quot;" newline="True"/>
+                <input variable="base"/>
+                <assign variable="area" expression="base*alt"/>
+                <output expression="&quot;A &#225;rea do ret&#226;ngulo &#233; &quot; &amp;area" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
