@@ -31,7 +31,8 @@ public class Principal {
     
     //método para (for)
        for (i = 0; i < n; i++) {
-           System.out.println("Informe o valor do número: "); //gravar
+           System.out.println("Informe o valor de 15 números "
+                   + "e será indicado valores maiores que 30: "); //gravar
            v[i] = teclado.nextInt(); //ler
            System.out.println(""); //espaço
        }
