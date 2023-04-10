@@ -1,0 +1,6 @@
+Voto: on
+Voto: on
+Voto: brancoon
+Voto: vermelho on
+Voto: branco
+Voto: branco
