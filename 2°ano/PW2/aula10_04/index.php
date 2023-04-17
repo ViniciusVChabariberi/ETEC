@@ -1,21 +1,62 @@
 <?php
 
-    if(isset($_POST['nome'])){
-        $arquivo = fopen("dados.txt" , "a");
-        fwrite($arquivo , "Nome: " . $_POST['nome'] . "\n");
-        fclose($arquivo);
-    }
 
     if(isset($_POST['votob'])){
         $voto = fopen("voto.txt" , "a");
         fwrite($voto , "Voto: branco" . "\n");
         fclose($voto);
-    }
-
-    if(isset($_POST['votov'])){
+    } else if(isset($_POST['votov'])){
         $voto = fopen("voto.txt" , "a");
         fwrite($voto , "Voto: vermelho " . "\n");
         fclose($voto);
+    }
+
+    function Registrar(){
+        $voto = "dados.txt";
+
+        $contarVotoBranco = fopen($voto, "r");
+        $votoBranco = fread($contarVotoBranco, filesize($voto));
+        $branco = substr_count(' '.$votoBranco.' ', 'Voto Registrado: Branco');
+
+        $contarVotoVerde = fopen($voto, "r");
+        $votoVerde = fread($contarVotoVerde, filesize($voto));
+        $verde = substr_count(' '.$votoVerde.' ', 'Voto Registrado: Verde');
+
+        if($verde<$branco){
+            $voto = fopen("dados.txt" , "a");
+            fwrite($voto, "Voto verde venceu " . $verde . " votos \n");
+			fclose($voto);
+			echo "<p>Voto verde: " . $verde . " votos.<p>";
+			echo "<p>Voto branco: " . $branco . " votos.</p>";
+			echo "<p>Voto verde venceu.</p>";
+        } else if($branco<$verde){
+            $voto = fopen("dados.txt" , "a");
+            fwrite($voto, "Voto branco venceu " . $branco . " votos \n");
+			fclose($voto);
+			echo "<p>Voto branco: " . $branco . " votos.<p>";
+			echo "<p>Voto verde: " . $verde . " votos.</p>";
+			echo "<p>Voto branco venceu.</p>";
+        }else if($branco == $verde){
+            if($branco == 1){
+                $voto = fopen("dados.txt" , "a");
+                fwrite($voto, "O voto verde empatou com o voto branco. Quantidade de votos " . $verde . "voto cada. \n");
+                fclose($voto);
+                echo "<p>Voto verde: " . $verde . " voto.<p>";
+                echo "<p>Voto branco: " . $branco . " voto.</p>";
+                echo "<p>Empate.</p>";
+            } else if {
+                $voto = fopen("dados.txt" , "a");
+                fwrite($voto, "O voto verde empatou com o voto branco. Quantidade de votos " . $verde . "voto cada. \n");
+                fclose($voto);
+                echo "<p>Voto verde: " . $verde . " voto.<p>";
+                echo "<p>Voto branco: " . $branco . " voto.</p>";
+                echo "<p>Empate.</p>";
+            }
+        }
+    }
+    
+    if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['Registrar'])){
+        Registrar();
     }
 
 ?>
@@ -30,7 +71,6 @@
 </head>
 <body style="background-color: <?php if(isset($_POST['nome'])) { echo '#CCCCCC'; } else { echo 'f3f3f3'; }?>">
     <form name="dados_pessoais" method="POST" action="">
-        Nome:<input type="text" name="nome" id="nome" required><br>
        <br> Votação <br>
 
         Branco: <input type="radio" name="votob" id="votob"><br>
