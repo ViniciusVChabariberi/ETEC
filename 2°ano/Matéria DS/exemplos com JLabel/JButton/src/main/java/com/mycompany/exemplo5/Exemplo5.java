@@ -11,7 +11,7 @@ import java.awt.event.*;
  * @author viniv
  */
 public class Exemplo5 extends JFrame{
-    JButton botao1, botao2, botao3, botao4;//variável de instância
+    JButton botao1, botao2, botao3, botao4, botaosair;//variável de instância
     ImageIcon icone;//variavel de instância
     public Exemplo5(){
         super("Exemplo com JButton");
@@ -22,11 +22,13 @@ public class Exemplo5 extends JFrame{
         botao2 = new JButton ("Voltar <<");
         botao3 = new JButton ("Próximo >>");
         botao4 = new JButton ("Abrir");
+        botaosair = new JButton ("Sair");
         
         botao1.setBounds(50, 20, 100, 20);
         botao2.setBounds(50, 60, 100, 20);
         botao3.setBounds(50, 100, 100, 20);
         botao4.setBounds(50, 140, 100, 20);
+        botaosair.setBounds(50, 180, 100, 20);
         
         botao1.setBackground(Color.black);
         botao2.setBackground(Color.black);
@@ -45,10 +47,19 @@ public class Exemplo5 extends JFrame{
         //tecla enter pressionada com foco
         getRootPane().setDefaultButton(botao1);
         
+        botaosair.addActionListener(
+        new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+            }
+        }
+        );
+        
         tela.add(botao1);
         tela.add(botao2);
         tela.add(botao3);
         tela.add(botao4);
+        tela.add(botaosair);
         setSize(400, 250);
         setVisible(true);
         setLocationRelativeTo(null);

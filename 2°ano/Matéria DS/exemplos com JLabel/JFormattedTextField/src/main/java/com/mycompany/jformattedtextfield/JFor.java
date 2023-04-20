@@ -59,6 +59,11 @@ public class JFor extends JFrame{
         cpf.setBounds(150, 120, 100, 20);
         DATA.setBounds(150, 160, 100, 20);
         
+        //cep.setForeground
+        //cep.setBackground
+        //cep.setFont
+        
+        
         tela.add(CEP);
         tela.add(TEL);
         tela.add(CPF);
