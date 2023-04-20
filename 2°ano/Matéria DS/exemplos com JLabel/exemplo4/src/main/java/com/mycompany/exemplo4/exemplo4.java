@@ -12,7 +12,7 @@ import java.awt.*;
  */
 //criação de classe pública que herda o JFrame
 public class exemplo4 extends JFrame  {
-    //declaração dos objetos
+    //declaração das variáveis de instância
     JLabel rotulo1,rotulo2,rotulo3;
     JTextField texto1,texto2,texto3;
     JButton botao1, botao2;

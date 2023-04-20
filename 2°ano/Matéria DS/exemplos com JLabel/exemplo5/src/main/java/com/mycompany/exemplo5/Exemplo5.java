@@ -11,8 +11,8 @@ import java.awt.event.*;
  * @author viniv
  */
 public class Exemplo5 extends JFrame{
-    JButton botao1, botao2, botao3, botao4;
-    ImageIcon icone;
+    JButton botao1, botao2, botao3, botao4;//variável de instância
+    ImageIcon icone;//variavel de instância
     public Exemplo5(){
         super("Exemplo com JButton");
         Container tela = getContentPane();
