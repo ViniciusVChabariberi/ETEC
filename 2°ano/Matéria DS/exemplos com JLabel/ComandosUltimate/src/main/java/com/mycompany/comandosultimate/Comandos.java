@@ -23,7 +23,7 @@ public class Comandos extends JFrame{
     JPasswordField caixa;
     JFormattedTextField cep, tel, cpf, DATA;
     MaskFormatter masCEP, masTEL, masCPF, masdata;
-    JButton botao, botaosair, somar, mostrar;
+    JButton botao, botaosair, somar, mostrar, limpar, ocultar, exibi;
     JTextField texto1, texto2;
     ImageIcon iconei;
     
@@ -53,6 +53,8 @@ public class Comandos extends JFrame{
     iconei = new ImageIcon("abrir.gif");
     botao = new JButton ("Procurar",iconei);
     botaosair = new JButton ("Sair");
+    texto1 = new JTextField(5);
+    limpar = new JButton("Limpar");
     rotulo = new JLabel("Senha: ");
     caixa = new JPasswordField(10);
     exibir = new JLabel("A Senha digitada é: ");
@@ -129,8 +131,52 @@ public class Comandos extends JFrame{
                 }
         );
         
+        //cadastro de cliente
+        botao.addActionListener(
+            new ActionListener(){
+                public void actionPerformed(ActionEvent e) {
+                    String dado1, dado2;
+                    dado1 = cep.getText();
+                    exibir.setVisible(true);
+                    exibir.setText("O Cep é: " + dado1);
+                }
+            }
+                    
+                    );
         
-        //torna a exibição falsa
+        //limpar caixa de texto
+        limpar.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        texto1.setText(null);
+                        texto2.setText(null);
+                        texto1.requestFocus();
+                    }
+                }
+        );
+        
+        //ocultar e exibir
+        ocultar.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        texto1.setVisible(false);
+                    }
+                }
+        );
+        
+        exibi.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        texto1.setVisible(true);
+                    }
+                }
+        );
+        
+        //desabilitar e habilitar
+        //dentro da ação desabilita texto1.setEnabled(false);
+        //habilitatexto1.setEnabled(true);
+        
+        //torna a exibição falsa no final das ações
         exibir.setVisible(false);
     
     //perfumaria
