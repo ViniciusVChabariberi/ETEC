@@ -241,7 +241,71 @@ public class Comandos extends JFrame{
     exibir.setFont(new Font("Arial", Font.BOLD, 14));
     TEL.setFont(new Font("Arial", Font.BOLD, 14));
     cep.setFont(new Font("Arial", Font.BOLD, 14));
+
+    //checkbox
+    //chinButton = new JCheckBox("Chin");
+    //chinButton.setMnemonic(KeyEvent.VK_C); 
+    //chinButton.setSelected(true);
+
+    //glassesButton = new JCheckBox("Glasses");
+    //glassesButton.setMnemonic(KeyEvent.VK_G); 
+    //glassesButton.setSelected(true);
+
+    //hairButton = new JCheckBox("Hair");
+    //hairButton.setMnemonic(KeyEvent.VK_H); 
+    //hairButton.setSelected(true);
+
+    //teethButton = new JCheckBox("Teeth");
+    //teethButton.setMnemonic(KeyEvent.VK_T); 
+    //teethButton.setSelected(true);
+
+    //Register a listener for the check boxes.
+    //chinButton.addItemListener(this);
+    //glassesButton.addItemListener(this);
+   // hairButton.addItemListener(this);
+   // teethButton.addItemListener(this);
+
+//public void itemStateChanged(ItemEvent e) {
+    //Object source = e.getItemSelectable();
+
+    //if (source == chinButton) {
+        //...make a note of it...
+    //} else if (source == glassesButton) {
+        //...make a note of it...
+    //} else if (source == hairButton) {
+        //...make a note of it...
+    //} else if (source == teethButton) {
+        //...make a note of it...
+  //  }
+
+    //if (e.getStateChange() == ItemEvent.DESELECTED)
+        //...make a note of it...
+    //...
+    //updatePicture();
+//}
     
+//Radio Button
+//JRadioButton birdButton = new JRadioButton(birdString);
+    //birdButton.setMnemonic(KeyEvent.VK_B);
+    //birdButton.setActionCommand(birdString);
+    //birdButton.setSelected(true);
+
+    //JRadioButton catButton = new JRadioButton(catString);
+    //catButton.setMnemonic(KeyEvent.VK_C);
+    //catButton.setActionCommand(catString);
+    
+    //ButtonGroup group = new ButtonGroup();
+    //group.add(birdButton);
+    //group.add(catButton);
+    
+    // birdButton.addActionListener(this);
+    //catButton.addActionListener(this);
+    
+    //public void actionPerformed(ActionEvent e) {
+    //picture.setIcon(new ImageIcon("images/" 
+    //                              + e.getActionCommand() 
+  //                                + ".gif"));
+//}
     //setEchoChar('*'); altera a forma de visualização do que for digitado
     //seção para adicionar as variaveis de instância no container chamado "tela"
     tela.add(cpf);
