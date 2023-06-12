@@ -1,0 +1,16 @@
+CREATE TABLE fornecedores
+(Nome CHAR(30) NOT NULL,
+endereco CHAR(30) NOT NULL,
+Codigo_Peca char(12) UNIQUE NOT NULL,
+descisao char(15),
+preco decimal(11)
+);
+
+CREATE TABLE clientes
+(Clienteid int NOT NULL,
+Nome varchar(50) NOT NULL,
+Endereco varchar(50) NOT NULL,
+Cidade varchar(25) NOT NULL,
+Estado char(2) NOT NULL,
+primary key(Clienteid)
+);
