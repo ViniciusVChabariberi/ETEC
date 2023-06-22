@@ -38,10 +38,24 @@ public class Teste extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         texto1 = new javax.swing.JTextField();
         texto2 = new javax.swing.JTextField();
-        texto3 = new javax.swing.JTextField();
         lista = new javax.swing.JComboBox<>();
-        texto4 = new javax.swing.JFormattedTextField();
+        texto5 = new javax.swing.JFormattedTextField();
         jButton3 = new javax.swing.JButton();
+        texto3 = new javax.swing.JTextField();
+        rotulo6 = new javax.swing.JLabel();
+        texto4 = new javax.swing.JTextField();
+        rotulo7 = new javax.swing.JLabel();
+        texto6 = new javax.swing.JFormattedTextField();
+        rotulo8 = new javax.swing.JLabel();
+        texto7 = new javax.swing.JFormattedTextField();
+        rotulo9 = new javax.swing.JLabel();
+        texto8 = new javax.swing.JFormattedTextField();
+        rotulo10 = new javax.swing.JLabel();
+        texto9 = new javax.swing.JFormattedTextField();
+        rotulo11 = new javax.swing.JLabel();
+        texto10 = new javax.swing.JRadioButton();
+        texto11 = new javax.swing.JRadioButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,22 +64,22 @@ public class Teste extends javax.swing.JFrame {
         titulo.setToolTipText("");
 
         rotulo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        rotulo1.setText("Nome:");
+        rotulo1.setText("Pesquisar:");
 
         rotulo2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        rotulo2.setText("Endereço:");
+        rotulo2.setText("ID:");
 
         rotulo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        rotulo3.setText("Cidade:");
+        rotulo3.setText("Nome/Empresa:");
 
         rotulo4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        rotulo4.setText("Estado:");
+        rotulo4.setText("Município:");
 
         rotulo5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         rotulo5.setText("CEP:");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("Exibir");
+        jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -81,16 +95,26 @@ public class Teste extends javax.swing.JFrame {
         });
 
         texto1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        texto1.setEnabled(false);
+        texto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                texto1ActionPerformed(evt);
+            }
+        });
 
         texto2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        texto3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
         lista.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SP", "RJ", "MG", "AC", "PI", "ES", "PR", "PB", "TO" }));
+        lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vinicius Valero Chabariberi", "Victor Navarro", "Pedro Fernandes de Araujo", "Nickolas Maia Araujo", "Leticia Borges da Silva" }));
+        lista.setToolTipText("Profissionais");
+        lista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaActionPerformed(evt);
+            }
+        });
 
         try {
-            texto4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            texto5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -103,6 +127,85 @@ public class Teste extends javax.swing.JFrame {
             }
         });
 
+        texto3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        rotulo6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rotulo6.setText("Endereço:");
+
+        texto4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        rotulo7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rotulo7.setText("Tel:");
+
+        try {
+            texto6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        rotulo8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rotulo8.setText("Cel:");
+
+        try {
+            texto7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        rotulo9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rotulo9.setText("Cpf:");
+
+        try {
+            texto8.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        texto8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                texto8ActionPerformed(evt);
+            }
+        });
+
+        rotulo10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rotulo10.setText("Cnpj:");
+
+        try {
+            texto9.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        texto9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                texto9ActionPerformed(evt);
+            }
+        });
+
+        rotulo11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rotulo11.setText("Gênero:");
+
+        texto10.setText("M");
+        texto10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                texto10ActionPerformed(evt);
+            }
+        });
+
+        texto11.setText("F");
+        texto11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                texto11ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton4.setText("Pesquisar");
+        jButton4.setToolTipText("");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,29 +215,48 @@ public class Teste extends javax.swing.JFrame {
                 .addComponent(titulo)
                 .addGap(145, 145, 145))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rotulo1)
                             .addComponent(rotulo2)
                             .addComponent(rotulo3)
+                            .addComponent(rotulo4)
+                            .addComponent(rotulo6)
+                            .addComponent(rotulo7)
                             .addComponent(rotulo5)
-                            .addComponent(rotulo4))
+                            .addComponent(rotulo8)
+                            .addComponent(rotulo9)
+                            .addComponent(rotulo10)
+                            .addComponent(rotulo11))
                         .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(texto3, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                            .addComponent(texto2, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                            .addComponent(texto1)
-                            .addComponent(lista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(texto4))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(texto10)
+                                .addGap(62, 62, 62)
+                                .addComponent(texto11))
+                            .addComponent(texto1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(texto3, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lista, javax.swing.GroupLayout.Alignment.LEADING, 0, 290, Short.MAX_VALUE)
+                                    .addComponent(texto2, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton4))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(texto9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                .addComponent(texto8, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(texto7, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(texto6, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(texto5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(texto4, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
-                        .addGap(75, 75, 75)
+                        .addGap(131, 131, 131)
                         .addComponent(jButton2)))
                 .addGap(135, 135, 135))
         );
@@ -143,50 +265,86 @@ public class Teste extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rotulo1)
-                    .addComponent(texto1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(lista, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rotulo2)
-                    .addComponent(texto2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(texto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotulo3)
+                    .addComponent(texto2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(texto3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rotulo3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(rotulo4)
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lista, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(texto4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rotulo5))
-                .addGap(34, 34, 34)
+                    .addComponent(rotulo6)
+                    .addComponent(texto3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotulo4)
+                    .addComponent(texto4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotulo5)
+                    .addComponent(texto5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotulo7)
+                    .addComponent(texto6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rotulo8)
+                    .addComponent(texto7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(texto8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rotulo9))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rotulo10)
+                    .addComponent(texto9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotulo11)
+                    .addComponent(texto10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(texto11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
                 .addGap(56, 56, 56))
         );
 
-        setBounds(0, 0, 682, 592);
+        setBounds(0, 0, 820, 818);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String nome, endereco, cidade, estado, CEP;
-            nome = texto1.getText();
-            endereco = texto2.getText();
-            cidade = texto3.getText();
-            estado = lista.getSelectedItem().toString();
-            CEP = texto4.getText();
+        String nome, endereco, municipio, Profissionais, CEP, id, Tel, Cel, Cpf, Cnpj, escolha = " ";
+            Profissionais = lista.getSelectedItem().toString();
+            id = texto1.getText();
+            nome = texto2.getText();
+            endereco = texto3.getText();
+            municipio = texto4.getText();
+            CEP = texto5.getText();
+            Tel = texto6.getText();
+            Cel = texto7.getText();
+            Cpf = texto8.getText();
+            Cnpj = texto9.getText();
             
-            JOptionPane.showMessageDialog(null, "Nome: " + nome + "\nEndereço: " + endereco + "\nCidade: " + cidade + "\nEstado: " + estado + "\nCEP: " + CEP);
+            if(texto10.isSelected()){
+                escolha = texto10.getText();
+            }
+            
+            if(texto11.isSelected()){
+                escolha = texto11.getText();
+            }
+            
+            JOptionPane.showMessageDialog(null, "Profissional: " + Profissionais + "\nid: " + id + "\nNome/Empresa: " + nome + "\nEndereço: " + endereco + "\nMunicípio: " + municipio + "\nCep: " + CEP + "\nTelefone: " + Tel + "\nCelular: " + Cel + "\nCPF: " + Cpf + "\nCnpj: " + Cnpj + "\nGenêro: " + escolha);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -195,6 +353,13 @@ public class Teste extends javax.swing.JFrame {
         texto2.setText(null);
         texto3.setText(null);
         texto4.setText(null);
+        texto5.setText(null);
+        texto6.setText(null);
+        texto7.setText(null);
+        texto8.setText(null);
+        texto9.setText(null);
+        texto10.setText(null);
+        texto11.setText(null);
         texto1.requestFocus();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -202,6 +367,34 @@ public class Teste extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaActionPerformed
+
+    private void texto8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_texto8ActionPerformed
+
+    private void texto9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_texto9ActionPerformed
+
+    private void texto10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_texto10ActionPerformed
+
+    private void texto11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_texto11ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void texto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_texto1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,16 +435,30 @@ public class Teste extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> lista;
     private javax.swing.JLabel rotulo1;
+    private javax.swing.JLabel rotulo10;
+    private javax.swing.JLabel rotulo11;
     private javax.swing.JLabel rotulo2;
     private javax.swing.JLabel rotulo3;
     private javax.swing.JLabel rotulo4;
     private javax.swing.JLabel rotulo5;
+    private javax.swing.JLabel rotulo6;
+    private javax.swing.JLabel rotulo7;
+    private javax.swing.JLabel rotulo8;
+    private javax.swing.JLabel rotulo9;
     private javax.swing.JTextField texto1;
+    private javax.swing.JRadioButton texto10;
+    private javax.swing.JRadioButton texto11;
     private javax.swing.JTextField texto2;
     private javax.swing.JTextField texto3;
-    private javax.swing.JFormattedTextField texto4;
+    private javax.swing.JTextField texto4;
+    private javax.swing.JFormattedTextField texto5;
+    private javax.swing.JFormattedTextField texto6;
+    private javax.swing.JFormattedTextField texto7;
+    private javax.swing.JFormattedTextField texto8;
+    private javax.swing.JFormattedTextField texto9;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
