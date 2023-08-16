@@ -9,5 +9,8 @@ package com.mycompany.imc;
  * @author Admin
  */
 public class Principal {
-    
+        public static void main(String[] args){
+            MenuImc menuPrincipal = new MenuImc();
+            menuPrincipal.executarMenuPrincipal();
+	}
 }

@@ -28,16 +28,18 @@ public class MenuImc {
         
         do{
             this.executarMenuPrincipal();
-            this.avaliarOpcaoEscolhida();        
-        }while(this.opcao!=4);
+            this.avaliarOpacaoEscolhida();        
+        }while(this.opcao!=5);
     }
     
     public void executarMenuPrincipal(){
-        String mensagemMenu = "Selecione uma opcao: "
-                + "\n1 - Entrada"
-                + "\n2 - Retirada"
-                + "\n3 - Consultar Saldo"
-                + "\n4 - Sair";
+        String mensagemMenu = """
+                              Selecione uma opcao: 
+                              1 - Cadastrar Peso e Altura
+                              2 - Consultar os dados cadastrados
+                              3 - Calcular IMC
+                              4 - Verificar Situa\u00e7\u00e3o
+                              0 - Sair""";
     
     String entradaDados = io.entradaDados(mensagemMenu);
     this.opcao = conversor.stringToInt(entradaDados);    
@@ -46,20 +48,23 @@ public class MenuImc {
     public void avaliarOpacaoEscolhida(){
         switch(this.opcao){
             case 1:
-                String mensagemEntrada = "Digite o valor da entrada";
-                double ValorEntrada = conversor.stringToDouble(io.entradaDados(mensagemEntrada));
-                IMC.entrar(ValorEntrada);
+                String mensagemEntrada = "Digite o seu peso";
+                double ValorPeso = conversor.stringToDouble(io.entradaDados(mensagemEntrada));
+                mensagemEntrada = "Digite a sua altura";
+                double ValorAltura = conversor.stringToDouble(io.entradaDados(mensagemEntrada));
+                Imc.cadastrarDados(ValorPeso, ValorAltura);
                 break;
             case 2:
-                String mensagemRetirada = "Digite o valor da retirada";
-                double ValorRetirada = conversor.stringToDouble(io.entradaDados(mensagemRetirada));
-                IMC.retirar(ValorRetirada);
+                io.saidaDados("O seu peso é " + Imc.getPeso() + "\n"
+                    + "A sua altura é " + Imc.getAltura());
                 break;
             case 3:
-                String mensagemSaldo = "Saldo atual: " + caixa.getSaldo();
-                io.saidaDados(mensagemSaldo);
+                Imc.calcularIMC();
                 break;
             case 4:
+                situacao.verificarSituacao(Imc);
+                break;
+            case 0:
                 io.saidaDados("Finalizando programa!");
                 break;
             default:
