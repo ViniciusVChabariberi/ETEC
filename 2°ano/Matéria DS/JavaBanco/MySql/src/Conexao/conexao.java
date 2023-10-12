@@ -25,7 +25,7 @@ public class conexao {
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url,usuario,senha);
-            JOptionPane.showMessageDialog(null, "Conexão estabeleciada " , "Mensagem do Programa", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Conexão estabelecida " , "Mensagem do Programa", JOptionPane.INFORMATION_MESSAGE);
             } catch (ClassNotFoundException Driver){
                 JOptionPane.showMessageDialog(null, "Driver não localizado "+Driver,"Mensagem do Programa",JOptionPane.INFORMATION_MESSAGE);
                 result = false;
@@ -46,12 +46,16 @@ public class conexao {
     }
     
     public void executaSQL(String sql){
-        try { 
+         try { 
+        if (conexao != null) {
             statement = conexao.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             resultset = statement.executeQuery(sql);
-        } catch (SQLException excecao){
-            JOptionPane.showMessageDialog(null, "Erro no comando SQL! \n Erro: " + excecao, "Mensagem do Programa", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Conexão com o banco não foi estabelecida.", "Mensagem do Programa", JOptionPane.INFORMATION_MESSAGE);
         }
+    } catch (SQLException excecao){
+        JOptionPane.showMessageDialog(null, "Erro no comando SQL! \n Erro: " + excecao, "Mensagem do Programa", JOptionPane.INFORMATION_MESSAGE);
     }
     }
+}
 

@@ -43,11 +43,11 @@ CREATE TABLE `tbclientes` (
 --
 
 INSERT INTO `tbclientes` (`cod`, `nome`, `dt_nasc`, `telefone`, `email`) VALUES
-(1, 'Antonio', '17/03/1939', '1111-1111', 'antonio@antonio.com.br'),
-(2, 'Edna', '27/03/1969', '2222-2222', 'edna@edna.com.br'),
-(3, 'Gustavo', '27/05/2000', '3333-3333', 'hustavo@gustavo.com.br'),
-(4, 'aaaaaaa', '01/01/2001', '4444-4444', 'aaa@aaa.com.br'),
-(5, 'bbbbb', '02/02/2002', '5555-5555', 'bbb@bbb.com.br');
+(1, 'Antonio', '17/03/1939', '(11)11111-1111', 'antonio@antonio.com.br'),
+(2, 'Edna', '27/03/1969', '(11)22222-2222', 'edna@edna.com.br'),
+(3, 'Gustavo', '27/05/2000', '(11)33333-3333', 'hustavo@gustavo.com.br'),
+(4, 'aaaaaaa', '01/01/2001', '(11)44444-4444', 'aaa@aaa.com.br'),
+(5, 'bbbbb', '02/02/2002', '(11)55555-5555', 'bbb@bbb.com.br');
 
 --
 -- Indexes for dumped tables
