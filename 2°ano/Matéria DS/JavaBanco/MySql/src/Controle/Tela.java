@@ -12,8 +12,8 @@ import Conexao.conexao;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+
 public class Tela extends javax.swing.JFrame {
-    
     conexao con_cliente;
     /**
      * Creates new form Tela
@@ -43,13 +43,15 @@ public class Tela extends javax.swing.JFrame {
             while(con_cliente.resultset.next()){ // Iterando sobre os resultados do resultset
                 // Lendo os valores das colunas do resultset e atribuindo a variáveis
                 String cod = con_cliente.resultset.getString("cod");
+                String funcao = con_cliente.resultset.getString("funcao");
+                String departamento = con_cliente.resultset.getString("departamento");
                 String nome = con_cliente.resultset.getString("nome");
                 String dataNascimento = con_cliente.resultset.getString("dt_nasc");
                 String telefone = con_cliente.resultset.getString("telefone");
                 String email = con_cliente.resultset.getString("email");
             
                 // Adicionando uma nova linha à tabela com os valores das variáveis lidas
-                modelo.addRow(new Object[]{cod, nome, dataNascimento, telefone, email});
+                modelo.addRow(new Object[]{cod, funcao, departamento, nome, dataNascimento, telefone, email});
             }
         }catch(SQLException errosql){
             JOptionPane.showMessageDialog(null, "\nErro ao listar dados da tabela!  :\n"+errosql, "Mensagem do Programa: ",JOptionPane.INFORMATION_MESSAGE);
@@ -69,6 +71,8 @@ public class Tela extends javax.swing.JFrame {
         try{
             //associando a caixa de texto do JFRAME ao campo correspondente
             txtCod.setText(con_cliente.resultset.getString("cod"));
+            txtFuncao.setText(con_cliente.resultset.getString("funcao"));
+            txtDepartamento.setText(con_cliente.resultset.getString("departamento"));
             txtNome.setText(con_cliente.resultset.getString("nome"));
             txtNasc.setText(con_cliente.resultset.getString("dt_nasc"));
             txtTel.setText(con_cliente.resultset.getString("telefone"));
@@ -122,11 +126,11 @@ public class Tela extends javax.swing.JFrame {
         btnPrimeiro = new javax.swing.JButton();
         btnAvancar = new javax.swing.JButton();
         btnUltimo = new javax.swing.JButton();
-        txtEmail1 = new javax.swing.JTextField();
+        txtFuncao = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtEmail2 = new javax.swing.JTextField();
+        txtDepartamento = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        btnExcluir1 = new javax.swing.JButton();
+        btnPesquisa = new javax.swing.JButton();
 
         jLabel3.setText("Código");
 
@@ -187,6 +191,7 @@ public class Tela extends javax.swing.JFrame {
         tbclientes.setSelectionForeground(new java.awt.Color(0, 153, 153));
         jScrollPane1.setViewportView(tbclientes);
 
+        txtCod.setBackground(new java.awt.Color(255, 204, 255));
         txtCod.setCaretColor(new java.awt.Color(0, 153, 153));
         txtCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,11 +199,18 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
+        txtNome.setBackground(new java.awt.Color(255, 204, 255));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
+
+        txtNasc.setBackground(new java.awt.Color(255, 204, 255));
+
+        txtTel.setBackground(new java.awt.Color(255, 204, 255));
+
+        txtEmail.setBackground(new java.awt.Color(255, 204, 255));
 
         BtnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Add.png"))); // NOI18N
         BtnNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -270,20 +282,24 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
+        txtFuncao.setBackground(new java.awt.Color(255, 204, 255));
+
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setText("Função");
+
+        txtDepartamento.setBackground(new java.awt.Color(255, 204, 255));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 153, 153));
         jLabel10.setText("Departamento");
 
-        btnExcluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
-        btnExcluir1.setMaximumSize(new java.awt.Dimension(49, 33));
-        btnExcluir1.setMinimumSize(new java.awt.Dimension(49, 33));
-        btnExcluir1.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
+        btnPesquisa.setMaximumSize(new java.awt.Dimension(49, 33));
+        btnPesquisa.setMinimumSize(new java.awt.Dimension(49, 33));
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluir1ActionPerformed(evt);
+                btnPesquisaActionPerformed(evt);
             }
         });
 
@@ -298,30 +314,6 @@ public class Tela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel9)))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(111, 111, 111)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtTel)
-                            .addComponent(txtEmail)
-                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,17 +334,49 @@ public class Tela extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, Short.MAX_VALUE)
-                                .addComponent(btnExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(66, 66, 66))))
+                        .addGap(66, 66, 66))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel9)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jLabel4)))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(111, 111, 111)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtTel)
+                            .addComponent(txtEmail)
+                            .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(Título)
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -361,16 +385,12 @@ public class Tela extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(txtEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -382,7 +402,7 @@ public class Tela extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUltimo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -391,19 +411,22 @@ public class Tela extends javax.swing.JFrame {
                     .addComponent(btnVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPrimeiro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnNovo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExcluir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPesquisa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNovoActionPerformed
             txtCod.setText("");
+            txtFuncao.setText("");
+            txtDepartamento.setText("");
             txtNome.setText("");
             txtNasc.setText("");
             txtTel.setText("");
@@ -420,13 +443,15 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+            String funcao = txtFuncao.getText();
+            String departamento = txtDepartamento.getText();
             String nome = txtNome.getText();
             String dataNasc = txtNasc.getText();
             String telefone = txtTel.getText();
             String email = txtEmail.getText();
             
             try{
-                    String insertSql = "INSERT INTO tbclientes (nome, dt_nasc, telefone, email) VALUES ('" + nome +  " ', '" + dataNasc +  "', '" + telefone +  "', '" + email +  "'  )";
+                    String insertSql = "INSERT INTO tbclientes (funcao, departamento, nome, dt_nasc, telefone, email) VALUES ('" + funcao + " ', '" + departamento + " ', '" + nome +  " ', '" + dataNasc +  "', '" + telefone +  "', '" + email +  "'  )";
                     con_cliente.statement.executeUpdate(insertSql);
                     JOptionPane.showMessageDialog(null, "Gravação realizada com sucesso!", "Mensagem do Programa  ", JOptionPane.INFORMATION_MESSAGE);
                     con_cliente.executaSQL("SELECT * FROM tbClientes ORDER BY cod");
@@ -440,6 +465,8 @@ public class Tela extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
             String codigo = txtCod.getText();
+            String departamento = txtDepartamento.getText();
+            String funcao = txtFuncao.getText();
             String nome = txtNome.getText();
             String dataNasc = txtNasc.getText();
             String telefone = txtTel.getText();
@@ -450,10 +477,10 @@ public class Tela extends javax.swing.JFrame {
                         
             try{
                 if(txtCod.getText().equals("")){
-                    sql = "INSERT INTO tbclientes (nome, dt_nasc, telefone, email) VALUES ('" + nome +  " ', '" + dataNasc +  "', '" + telefone +  "', '" + email +  "'  )";
+                    sql = "INSERT INTO tbclientes (funcao, departamento, nome, dt_nasc, telefone, email) VALUES ('"+ funcao + " ', '" + departamento + " ', '" + nome +  " ', '" + dataNasc +  "', '" + telefone +  "', '" + email +  "'  )";
                     msg = "Gravação de um novo registro";
                 }else {
-                sql = "UPDATE tbclientes set nome='" + nome + "',dt_nasc='" + dataNasc + "', telefone='" + telefone + "', email='" + email + "' WHERE cod = " + codigo;
+                sql = "UPDATE tbclientes set funcao='" + funcao + "',departamento='" + departamento + "',nome='" + nome + "',dt_nasc='" + dataNasc + "', telefone='" + telefone + "', email='" + email + "' WHERE cod = " + codigo;
                 msg = "Alteração de registro";
                 }
                 con_cliente.statement.executeUpdate(sql);
@@ -497,8 +524,8 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        JOptionPane.showMessageDialog(null, "Finalizando programa...");
-        System.exit(0);
+            new TelaLogar().setVisible(true);
+            dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroActionPerformed
@@ -549,9 +576,11 @@ public class Tela extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAvancarActionPerformed
 
-    private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
+    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluir1ActionPerformed
+            new Pesquisa().setVisible(true);
+            dispose();
+    }//GEN-LAST:event_btnPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -587,6 +616,7 @@ public class Tela extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnNovo;
@@ -595,7 +625,7 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnExcluir1;
+    private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnPrimeiro;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnUltimo;
@@ -612,9 +642,9 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbclientes;
     private javax.swing.JTextField txtCod;
+    private javax.swing.JTextField txtDepartamento;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEmail1;
-    private javax.swing.JTextField txtEmail2;
+    private javax.swing.JTextField txtFuncao;
     private javax.swing.JTextField txtNasc;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTel;

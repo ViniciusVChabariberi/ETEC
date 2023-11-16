@@ -57,5 +57,17 @@ public class conexao {
         JOptionPane.showMessageDialog(null, "Erro no comando SQL! \n Erro: " + excecao, "Mensagem do Programa", JOptionPane.INFORMATION_MESSAGE);
     }
     }
+    
+    public Connection conectar(){
+        Connection conn = null;
+        
+        try{
+            String url = "jdbc:mysql://127.0.0.1/clientes?user=root&password=";
+            conn = DriverManager.getConnection(url);
+        } catch(SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Conexão estabelecida" + erro.getMessage());
+        }
+        return conn;
+    }
 }
 

@@ -8,14 +8,55 @@ package Controle;
  *
  * @author dti
  */
+import Conexao.conexao;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
 public class Pesquisa extends javax.swing.JFrame {
 
+    conexao con_cliente;
     /**
      * Creates new form Pesquisa
      */
     public Pesquisa() {
         initComponents();
+        con_cliente = new conexao();
+        con_cliente.conecta();
+        con_cliente.executaSQL("SELECT * FROM tbclientes ORDER BY COD");
+        preencherTabela();
+        tbclientes.setAutoCreateRowSorter(true);
+        
     }
+    
+    public void preencherTabela(){
+        int[] columnWidths = { 4, 100, 50, 50, 100 };
+        for (int i = 0; i < columnWidths.length; i++) {
+            tbclientes.getColumnModel().getColumn(i).setPreferredWidth(columnWidths[i]);
+        }
+        
+        DefaultTableModel modelo = (DefaultTableModel) tbclientes.getModel(); // Obtendo o modelo da tabela para manipulação
+        modelo.setNumRows(0); // Limpa todos os dados da tabela atual
+        
+        try{
+            con_cliente.resultset.beforeFirst(); // Movendo o cursor do resultset para antes do primeiro item
+            while(con_cliente.resultset.next()){ // Iterando sobre os resultados do resultset
+                // Lendo os valores das colunas do resultset e atribuindo a variáveis
+                String cod = con_cliente.resultset.getString("cod");
+                String funcao = con_cliente.resultset.getString("funcao");
+                String departamento = con_cliente.resultset.getString("departamento");
+                String nome = con_cliente.resultset.getString("nome");
+                String dataNascimento = con_cliente.resultset.getString("dt_nasc");
+                String telefone = con_cliente.resultset.getString("telefone");
+                String email = con_cliente.resultset.getString("email");
+            
+                // Adicionando uma nova linha à tabela com os valores das variáveis lidas
+                modelo.addRow(new Object[]{cod, funcao, departamento, nome, dataNascimento, telefone, email});
+            }
+        }catch(SQLException errosql){
+            JOptionPane.showMessageDialog(null, "\nErro ao listar dados da tabela!  :\n"+errosql, "Mensagem do Programa: ",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,9 +76,9 @@ public class Pesquisa extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         btnAvancar = new javax.swing.JButton();
         btnUltimo = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
+        btnVoltarTela = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Título.setBackground(new java.awt.Color(204, 204, 255));
         Título.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -71,6 +112,7 @@ public class Pesquisa extends javax.swing.JFrame {
         tbclientes.setSelectionForeground(new java.awt.Color(0, 153, 153));
         jScrollPane1.setViewportView(tbclientes);
 
+        txt_pesquisa.setBackground(new java.awt.Color(255, 204, 255));
         txt_pesquisa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_pesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,10 +158,10 @@ public class Pesquisa extends javax.swing.JFrame {
             }
         });
 
-        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltarTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Go back.png"))); // NOI18N
+        btnVoltarTela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
+                btnVoltarTelaActionPerformed(evt);
             }
         });
 
@@ -127,32 +169,31 @@ public class Pesquisa extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(227, 227, 227)
-                        .addComponent(Título))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(btnPrimeiro)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVoltar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAvancar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUltimo)
-                        .addGap(39, 39, 39)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(24, 24, 24)
                 .addComponent(txt_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(132, 132, 132))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(227, 227, 227)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnPrimeiro)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnUltimo))
+                    .addComponent(Título))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVoltarTela, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,11 +202,11 @@ public class Pesquisa extends javax.swing.JFrame {
                 .addComponent(Título)
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUltimo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAvancar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPrimeiro, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPrimeiro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltarTela, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
@@ -176,6 +217,7 @@ public class Pesquisa extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_pesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pesquisaActionPerformed
@@ -200,7 +242,6 @@ public class Pesquisa extends javax.swing.JFrame {
     private void btnPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroActionPerformed
         try{
             con_cliente.resultset.first();
-            mostrarDados();
         }catch(SQLException errosql){
             JOptionPane.showMessageDialog(null, "Não foi possível acessar o primeiro registro: "+errosql, "Mensagemos do programa: ", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -214,7 +255,6 @@ public class Pesquisa extends javax.swing.JFrame {
             } else {
                 con_cliente.resultset.previous();
             }
-            mostrarDados();
 
         }catch(SQLException errosql){
             JOptionPane.showMessageDialog(null, "Não foi possível acessar o registro: "+errosql, "Mensagemos do programa: ", JOptionPane.INFORMATION_MESSAGE);
@@ -229,7 +269,6 @@ public class Pesquisa extends javax.swing.JFrame {
             } else {
                 con_cliente.resultset.next();
             }
-            mostrarDados();
 
         }catch(SQLException errosql){
             JOptionPane.showMessageDialog(null, "Não foi possível acessar o registro: "+errosql, "Mensagemos do programa: ", JOptionPane.INFORMATION_MESSAGE);
@@ -239,16 +278,16 @@ public class Pesquisa extends javax.swing.JFrame {
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
         try{
             con_cliente.resultset.last();
-            mostrarDados();
         }catch(SQLException errosql){
             JOptionPane.showMessageDialog(null, "Não foi possível acessar o primeiro registro: "+errosql, "Mensagemos do programa: ", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnUltimoActionPerformed
 
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        JOptionPane.showMessageDialog(null, "Finalizando programa...");
-        System.exit(0);
-    }//GEN-LAST:event_btnSairActionPerformed
+    private void btnVoltarTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarTelaActionPerformed
+        // TODO add your handling code here:
+            new Tela().setVisible(true);
+            dispose();
+    }//GEN-LAST:event_btnVoltarTelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,9 +328,9 @@ public class Pesquisa extends javax.swing.JFrame {
     private javax.swing.JLabel Título;
     private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnPrimeiro;
-    private javax.swing.JButton btnSair;
     private javax.swing.JButton btnUltimo;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltarTela;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbclientes;
