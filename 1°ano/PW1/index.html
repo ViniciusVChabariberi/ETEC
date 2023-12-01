@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="principal.js"></script>
+    <link rel="stylesheet" href="style.css">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>    
+
+<body>
+    
+    <div id="Principal">
+            <h1>Calculadora</h1>
+            <div class="d-flex flex-column mb-3">
+                <div class="p-2"><input type="number" name="num1" id="num1" onclick=""></div>
+                <div class="p-2"><input type="number" name="num2" id="num2" onclick=""></div>
+            </div>
+
+        <input type="button" value="+" name="somar" id="butao" onclick="Somar()" >
+        <input type="button" value="-" name="subtrair" id="butao" onclick="Subtrair()">
+        <input type="button" value="x" name="multiplicar" id="butao" onclick="Multiplicar()">
+        <input type="button" value="/" name="dividir" id="butao" onclick="Dividir()">
+    </div>
+    <div id = "calculo">
+
+    </div>
+</body>
+</html>
