@@ -1,0 +1,51 @@
+nav {
+    background-color: #007BFF;
+}
+
+#text {
+    font-size: 23px;
+    padding-top: 7px;
+    padding-left: 10px;
+    color: rgb(247, 243, 243);
+}
+#text4 {
+    font-size: 18px;
+    padding-left: 15px;
+    padding-top: 10px;
+    color: white;
+}
+#text2 {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: start;
+   
+}
+#text3 {
+    font-size: 18px;
+    text-align: start;
+   
+}
+#text5{
+    font-size: 18px;
+    text-align: start;
+    padding-bottom: 10px;
+  
+}
+
+body {
+    background-color: rgb(215, 215, 215)
+}
+.container {
+    background-color: white;
+    padding: 0%;
+}
+
+.formulario{
+    margin: 2%;
+    padding-bottom: 1%;
+}
+
+.botao{
+    width: 100px;
+    height: 40px;
+}

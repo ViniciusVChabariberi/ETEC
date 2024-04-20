@@ -1,0 +1,184 @@
+.body {
+    /*background-color: rgb(215, 215, 215) */
+    background: rgb(40,40,40);
+    background: radial-gradient(circle, rgba(40,40,40,1) 85%, rgba(15,182,224,1) 100%);
+}
+
+.container {
+    padding: 0%;
+}
+
+/* index.php */
+nav {
+    /*background-color: #007BFF;*/
+    background-color: #0fb6e0;
+}
+
+.p {
+    padding-left:10px;
+    padding-top: 5px;
+}
+
+.title {
+    font-size: 23px;
+    color: #282828;
+}
+
+.subtitle{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: start;
+    padding-left: 25px;
+    padding-top: 20px;
+    color: #0fb6e0;
+}
+
+.subtitle_2{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 100px;
+    color: #0fb6e0;
+}
+
+.subtitle_two{
+    font-size: 18px;
+    text-align: start;
+    padding-left: 25px;
+    color: #0fb6e0;
+}
+
+.Options {
+    font-size: 18px;
+    color: #0fb6e0;
+    text-decoration: none;
+}
+
+.formulario{
+    margin: 2%;
+    padding-bottom: 1%;
+}
+
+.formulario_titulos{
+    font-size: 18px;
+    text-align: start;
+    padding-bottom: 10px;
+    color: #0fb6e0;
+}
+
+.botao{
+    width: 100px;
+    height: 40px;
+    background-color: #0fb6e0;
+    border-radius: 10px;
+}
+
+/* consulta.php */
+
+.consulta{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-right: 200px;
+}
+
+
+/* cadastro.php */
+
+.body--cadastro {
+    background: rgb(40,40,40);
+    background: radial-gradient(circle, rgba(40,40,40,1) 85%, rgba(20,235,99,1) 100%);
+}
+
+.verde{
+    background-color: #14eb63;
+}
+
+.Options2 {
+    font-size: 35px;
+    color: #14eb63;
+    text-decoration: none;
+    padding-left: 300px;
+}
+
+.subtitle--cadastro{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: start;
+    padding-left: 25px;
+    padding-top: 20px;
+    color: #14eb63;
+}
+
+/* deletar.php */
+
+.body--deletar {
+    background: rgb(40,40,40);
+    background: radial-gradient(circle, rgba(40,40,40,1) 85%, rgba(235,20,20,1) 100%);
+}
+
+.vermelho{
+    background-color: #eb1414;
+}
+
+.Options2--deletar{
+    font-size: 35px;
+    color: #eb1414;
+    text-decoration: none;
+    padding-left: 300px;
+}
+
+.subtitle--deletar{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: start;
+    padding-left: 25px;
+    padding-top: 20px;
+    color: #eb1414;
+}
+
+/* atualizar.php */
+
+.body--atualizar {
+    background: rgb(40,40,40);
+    background: radial-gradient(circle, rgba(40,40,40,1) 85%, rgba(230,11,225,1) 100%);
+}
+
+.rosa{
+    background-color: #e60be1;
+}
+
+.formulario_titulos--atualizar{
+    font-size: 18px;
+    text-align: start;
+    padding-bottom: 10px;
+    color: #e60be1;
+}
+
+.Options2--atualizar{
+    font-size: 35px;
+    color: #e60be1;
+    text-decoration: none;
+    padding-left: 300px;
+}
+
+.subtitle--atualizar{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: start;
+    padding-left: 25px;
+    padding-top: 20px;
+    color: #e60be1;
+}
+
+.botao--atualizar{
+    width: 100px;
+    height: 40px;
+    background-color: #e60be1;
+    border-radius: 10px;
+}
+
+@media(max-width:580px) {
+    #tabela{
+        overflow: scroll;
+    }
+}

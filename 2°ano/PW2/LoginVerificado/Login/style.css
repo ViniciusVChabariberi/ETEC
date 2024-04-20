@@ -1,0 +1,52 @@
+.body{
+    background-color: rgba(196,67,242,1)
+}
+
+.body__cadastrado{
+    background-color: rgba(56,247,26,0.9837184873949579);
+}
+
+.box__cadastrado{
+    margin: 0 auto;
+    color: #000000;
+    padding-top: 100px;
+    padding-bottom: 300px;
+    background: rgb(207,206,206);
+    background: radial-gradient(circle, rgba(207,206,206,1) 0%, rgba(56,247,26,0.9837184873949579) 74%);
+}
+
+.box{
+    margin: 0 auto;
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 300px;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(204,70,252,0.9837184873949579) 100%);
+}
+
+.formulario__titulos{
+    font-size: 18px;
+    text-align: start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.formulario__titulos--senha{
+    font-size: 18px;
+    text-align: start;
+    padding-top: 10px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.botao {
+    background-image: linear-gradient(to right,rgba(207,206,206,1), rgb(90, 20, 220));
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}

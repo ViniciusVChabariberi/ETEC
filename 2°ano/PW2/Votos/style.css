@@ -1,0 +1,23 @@
+.container {
+    padding: 0%;
+}
+body{
+    background: rgb(255,0,0);
+    background: linear-gradient(90deg, rgba(255,0,0,1) 10%, rgba(2,0,36,1) 50%, rgba(9,9,121,1) 90%);
+}
+h1 {
+    text-align: center;
+    color: white;
+}
+
+input {
+    margin-top: 2rem;
+    border-radius: 2rem;
+    background-color: black;
+    color: white;
+    width: 100px;
+}
+
+.resultado{
+    color: white;
+}
