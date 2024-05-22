@@ -1,8 +1,0 @@
-index: 5 imagens no carrosel e 3 imagens dos principais topicos
-
-5 paginas com mesmo template (1 imagem na esquerda e 1 accordion seu do lado direito)
-paginas inteligadas com href (link) <a>href"nomedapagina.html" Counter Strike</a>
-
-obs: pode-se usar um logo (icone) específico e deve ter em todas as paginas
-favicon
-convertio de jpg para ico
