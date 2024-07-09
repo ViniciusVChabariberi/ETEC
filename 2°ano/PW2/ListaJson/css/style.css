@@ -1,0 +1,17 @@
+.tabela {
+    margin-bottom: 2rem; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}

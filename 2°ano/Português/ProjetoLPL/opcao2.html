@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dois Irmãos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/Style.css">
+    <script src="assets/app.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="livro.html">Home</a>
+                </li>
+                <li class="nav-item ml-3">
+                    <a class="nav-link" href="livro.html">Livro</a>
+                </li>
+            </ul>
+            <a class="navbar-brand mx-auto" href="livro.html"><img src="assets/Imagens/logo.png" alt=""></a>
+            <ul class="navbar-nav">
+                <li class="nav-item mr-3">
+                    <a class="nav-link" href="grupo.html">Grupo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jogo.html">Jogo</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <div class="container text-center mt-4">
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+                    <h1 class="display-4">Jogo <text class="title">Interativo</text></h1>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col">
+                <video width="640" height="360" controls>
+                    <source src="assets/Dois_Irmaos.mp4" type="video/mp4">
+                    Seu navegador não suporta a reprodução de vídeo.
+                </video>
+            </div> 
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <br><br>
+                    <p class="display-4">Escolha uma opção:</p>
+                    <br>
+                </div>
+                <div class="opcoes">
+                    <button type="button" class="btn btn-success botao" onclick="verificarResposta2('opcao1')">Opção 1</button>
+                    <button type="button" class="btn btn-success botao" onclick="verificarResposta2('opcao2')">Opção 2</button>
+                    <button type="button" class="btn btn-success botao" onclick="verificarResposta2('opcao3')">Opção 3</button>
+                    <button type="button" class="btn btn-success botao" onclick="verificarResposta2('opcao4')">Opção 4</button>
+                </div>
+            </div>
+        </div>
+    <footer class="bg-dark text-white mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="mb-0">Nos Envie um Feedback</p>
+                        <button class="btn btn-light mt-2">Redirecionar</button>
+                    </div>
+                </div>
+                <div class="col-md-1 d-none d-md-block">
+                    <div class="vl"></div>
+                </div>
+                <div class="col-md-5 text-justify">
+                    <p>Etec Zona Leste</p>
+                    <p>Trabalho de Português</p>
+                    <p>2°DS Ams/2023</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

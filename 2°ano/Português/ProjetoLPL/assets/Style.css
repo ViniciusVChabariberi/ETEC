@@ -1,0 +1,142 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #DED4B2;
+    font-family: 'Inter',sans-serif;
+}
+
+.navbar {
+    background: #C6A45B;
+}
+
+.navbar a {
+    margin: 0 80px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+
+
+ 
+
+    text-align: center;
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    padding: 20px 0;
+}
+
+ button {
+    background: #D9D9D9;
+    color: rgb(15, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.vl {
+
+
+    border-left: 2px solid #8E7642;
+    height: 100px;
+    left: 50%;
+    margin-left: -1px;
+    top: 25px;
+}
+
+.col-md-5 p {
+    margin-bottom: 10px;
+}
+
+/*Sobre Nós*/
+       /* Estilos para imagens redondas e seção de pessoas */
+       .rounded-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .people-section {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
+    .people-section p {
+        font-size: 12px;
+    }
+
+    /* Sticky footer styles */
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;
+
+    }
+    main h1{
+        text-align: center;
+    }
+
+/*Jogo Interativo*/
+    .title{
+        color: #C6A45B;
+    }
+    .escolha{
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .display-4{
+        text-align: center;
+    }
+    .video{
+        margin-right: 10000px;
+    }
+    .botao{
+        justify-content: space-between;
+        width: 200px;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+    .botao:hover{
+        transform: scale(1.1);
+        background-position: -60px;
+    }
+
+/*Errado*/
+
+    .container img{
+        display: block;
+        margin: 0 auto;
+    }
+
+    .buttonErrado{
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+        background-color: green;
+    }
